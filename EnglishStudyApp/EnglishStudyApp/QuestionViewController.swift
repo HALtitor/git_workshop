@@ -10,20 +10,21 @@ import UIKit
 
 class QuestionViewController: UIViewController {
     
-    @IBOutlet weak var qtext: UILabel!
-    @IBOutlet weak var c1: UIButton!
+    @IBOutlet weak var qtext: UILabel! //問題文
+    @IBOutlet weak var c1: UIButton! //選択肢1~4
     @IBOutlet weak var c2: UIButton!
     @IBOutlet weak var c3: UIButton!
     @IBOutlet weak var c4: UIButton!
-    @IBOutlet weak var ans: UILabel!
-    @IBOutlet weak var nextQ: UIButton!
+    @IBOutlet weak var ans: UILabel! //正解かどうかを表示
+    @IBOutlet weak var nextQ: UIButton! //次の問題へ行く
     
-    @IBOutlet weak var goScore: UIButton!
-    @IBOutlet weak var goTitle: UIButton!
+    @IBOutlet weak var goScore: UIButton! //スコア画面へ遷移
+    @IBOutlet weak var goTitle: UIButton! //タイトル画面へ遷移
     
-    var correctAnswer = 0
-    var userChoiceAnswer = 0
-    var isCorrect = false
+    var correctAnswer = 0 //答えが選択肢の何番めか
+    var userChoiceAnswer = 0 //ユーザーの回答した選択肢
+    var isCorrect = false //正解か不正解か
+    var answerName = "" //答え
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,20 +34,7 @@ class QuestionViewController: UIViewController {
         // 問題文の読込
         QuestionDataManager.sharedInstance.loadQuestion()
         
-        // 問題文の取り出し
-        guard let questionData = QuestionDataManager.sharedInstance.nextQuestion() else{
-            // 取得できずに終了
-            return
-        }
-        // 問題文のセット
-        qtext.text = questionData.question
-        c1.setTitle(questionData.answer1, for: .normal)
-        c2.setTitle(questionData.answer2, for: .normal)
-        c3.setTitle(questionData.answer3, for: .normal)
-        c4.setTitle(questionData.answer4, for: .normal)
-        correctAnswer = questionData.correctAnswerNumber
-        
-        Hide()
+        initQ() //ラベル等の初期化
         
     }
     
@@ -63,44 +51,35 @@ class QuestionViewController: UIViewController {
     
     @IBAction func c1Action(_ sender: Any) {
         userChoiceAnswer = 1
-        if(correctAnswer == 1){
-            ans.text = "正解！！！"
-        }else{
-            ans.text = "不正解。。。"
-        }
-        unHide(isCorrect: isCorrect)
+        judge() //正誤判定
+        display() //ボタン等の表示の変更
     }
     @IBAction func c2Action(_ sender: Any) {
-        if(correctAnswer == 2){
-            ans.text = "正解！！！"
-        }else{
-            ans.text = "不正解。。。"
-        }
-        unHide(isCorrect: isCorrect)
+        userChoiceAnswer = 2
+        judge()
+        display()
     }
     @IBAction func c3Action(_ sender: Any) {
-        if(correctAnswer == 3){
-            ans.text = "正解！！！"
-        }else{
-            ans.text = "不正解。。。"
-        }
-        unHide(isCorrect: isCorrect)
+        userChoiceAnswer = 3
+        judge()
+        display()
     }
     @IBAction func c4Action(_ sender: Any) {
-        if(correctAnswer == 4){
-            ans.text = "正解！！！"
-        }else{
-            ans.text = "不正解。。。"
-        }
-        unHide(isCorrect: isCorrect)
+        userChoiceAnswer = 4
+        judge()
+        display()
     }
     
     @IBAction func nextQ(_ sender: Any) {
+        initQ()
+    }
+    
+    func initQ(){ //初期化
+        // 問題文の取り出し
         guard let questionData = QuestionDataManager.sharedInstance.nextQuestion() else{
             // 取得できずに終了
             return
         }
-        
         // 問題文のセット
         qtext.text = questionData.question
         c1.setTitle(questionData.answer1, for: .normal)
@@ -109,40 +88,62 @@ class QuestionViewController: UIViewController {
         c4.setTitle(questionData.answer4, for: .normal)
         correctAnswer = questionData.correctAnswerNumber
         
-        Hide()
-    }
-    
-    func Hide(){
-        ans.isHidden = true
+        ans.isHidden = true //ラベル等の表示、有効化など
         nextQ.isHidden = true
+        c1.isHidden = false
+        c2.isHidden = false
+        c3.isHidden = false
+        c4.isHidden = false
+        isCorrect = false
+        c1.isEnabled = true //trueなら有効,falseなら無効
+        c2.isEnabled = true
+        c3.isEnabled = true
+        c4.isEnabled = true
         
+        switch correctAnswer { //答えを代入
+        case 1:
+            answerName = questionData.answer1
+        case 2:
+            answerName = questionData.answer2
+        case 3:
+            answerName = questionData.answer3
+        case 4:
+            answerName = questionData.answer4
+        default:
+            break
+        }
     }
     
-    func unHide(isCorrect: Bool){
+    func display(){ //表示と有効化
         ans.isHidden = false
         nextQ.isHidden = false
         
+        c1.isEnabled = false
+        c2.isEnabled = false
+        c3.isEnabled = false
+        c4.isEnabled = false
         if(isCorrect){
-            if(correctAnswer == 1){
-                c2.isHidden = true
-                c3.isHidden = true
-                c4.isHidden = true
-            }else if(correctAnswer == 2){
-                c1.isHidden = true
-                c3.isHidden = true
-                c4.isHidden = true
-            }else if(correctAnswer == 3){
-                c1.isHidden = true
-                c2.isHidden = true
-                c4.isHidden = true
-            }else if(correctAnswer == 4){
-                c1.isHidden = true
-                c2.isHidden = true
-                c3.isHidden = true
-            }else{
-                
+            switch correctAnswer {
+            case 1:
+                c1.isEnabled = true
+            case 2:
+                c2.isEnabled = true
+            case 3:
+                c3.isEnabled = true
+            case 4:
+                c4.isEnabled = true
+            default:
+                break
             }
         }
     }
-
+    
+    func judge(){ //正誤判定
+        if(userChoiceAnswer == correctAnswer){
+            ans.text = "正解！！！"
+            isCorrect = true
+        }else{
+            ans.text = "不正解。。。正解は「"+answerName+"」でした。"
+        }
+    }
 }
