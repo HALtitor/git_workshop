@@ -17,8 +17,8 @@
 		61E5BB3B21AF81AA0077D3C0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E5BB3A21AF81AA0077D3C0 /* MenuViewController.swift */; };
 		61E5BB3D21AF81C90077D3C0 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E5BB3C21AF81C90077D3C0 /* QuestionViewController.swift */; };
 		61E5BB3F21AF81DC0077D3C0 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E5BB3E21AF81DC0077D3C0 /* ScoreViewController.swift */; };
-		61E5BB4121AF842F0077D3C0 /* csv100問.csv in Resources */ = {isa = PBXBuildFile; fileRef = 61E5BB4021AF842F0077D3C0 /* csv100問.csv */; };
 		61E5BB4321AF879E0077D3C0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61E5BB4221AF879E0077D3C0 /* File.swift */; };
+		61E5BB4721B8B55A0077D3C0 /* csv100問.csv in Resources */ = {isa = PBXBuildFile; fileRef = 61E5BB4621B8B55A0077D3C0 /* csv100問.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,8 +55,8 @@
 		61E5BB3A21AF81AA0077D3C0 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		61E5BB3C21AF81C90077D3C0 /* QuestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		61E5BB3E21AF81DC0077D3C0 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
-		61E5BB4021AF842F0077D3C0 /* csv100問.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "csv100問.csv"; path = "../../test/test/csv100問.csv"; sourceTree = "<group>"; };
 		61E5BB4221AF879E0077D3C0 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		61E5BB4621B8B55A0077D3C0 /* csv100問.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "csv100問.csv"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			children = (
 				61E5BB0C21AF7BE20077D3C0 /* AppDelegate.swift */,
 				61E5BB0E21AF7BE20077D3C0 /* ViewController.swift */,
-				61E5BB4021AF842F0077D3C0 /* csv100問.csv */,
+				61E5BB4621B8B55A0077D3C0 /* csv100問.csv */,
 				61E5BB3A21AF81AA0077D3C0 /* MenuViewController.swift */,
 				61E5BB3C21AF81C90077D3C0 /* QuestionViewController.swift */,
 				61E5BB3E21AF81DC0077D3C0 /* ScoreViewController.swift */,
@@ -245,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61E5BB1721AF7BE50077D3C0 /* LaunchScreen.storyboard in Resources */,
-				61E5BB4121AF842F0077D3C0 /* csv100問.csv in Resources */,
+				61E5BB4721B8B55A0077D3C0 /* csv100問.csv in Resources */,
 				61E5BB1421AF7BE50077D3C0 /* Assets.xcassets in Resources */,
 				61E5BB1221AF7BE20077D3C0 /* Main.storyboard in Resources */,
 			);
