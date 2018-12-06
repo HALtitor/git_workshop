@@ -102,13 +102,22 @@ class QuestionDataManager {
     }
     
     // 次の問題を取り出す
+//    func nextQuestion() -> QuestionData? {
+//        if nowQuestionIndex < questionDataArray.count {
+//            let nextQuestion = questionDataArray[nowQuestionIndex]
+//            nowQuestionIndex += 1
+//            return nextQuestion
+//        }
+//        return nil
+//    }
     func nextQuestion() -> QuestionData? {
-        if nowQuestionIndex < questionDataArray.count {
-            let nextQuestion = questionDataArray[nowQuestionIndex]
-            nowQuestionIndex += 1
-            return nextQuestion
+        if questionDataArray.isEmpty {
+            return nil
         }
-        return nil
+        let nextQuestionIndex = Int(arc4random_uniform(UInt32(questionDataArray.count)))
+        let nextQuestion = questionDataArray[nextQuestionIndex]
+        questionDataArray.remove(at: nextQuestionIndex)
+        return nextQuestion
     }
     
     

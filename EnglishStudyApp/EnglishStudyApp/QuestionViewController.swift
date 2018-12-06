@@ -20,12 +20,45 @@ class QuestionViewController: UIViewController {
     
     @IBOutlet weak var goScore: UIButton! //スコア画面へ遷移
     @IBOutlet weak var goTitle: UIButton! //タイトル画面へ遷移
+    @IBOutlet weak var QuestionIndex: UILabel! //何問目か
+    
+    var timer:Timer = Timer()
     
     var correctAnswer = 0 //答えが選択肢の何番めか
     var userChoiceAnswer = 0 //ユーザーの回答した選択肢
     var isCorrect = false //正解か不正解か
     var answerName = "" //答え
+    var Qindex = 1
     
+    
+    let prg:UIProgressView = UIProgressView()
+    var timer2:Timer = Timer()
+    
+    func progress() {
+        //作って画面に表示
+        prg.frame = CGRect(x: 25, y: 100, width: 720, height: 30)
+        prg.setProgress(1, animated: true)
+        view.addSubview(prg)
+        
+        //バーがだんだん短くなっていくようにTimerでリピートさせる
+        self.timer2 = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(QuestionViewController.timerFunc), userInfo: nil, repeats: true)
+        
+    }
+    //タイマーの中身
+    @objc func timerFunc() {
+        // prgの現在の数値より少しだけ少ない数値をprgにセット
+        let newValue = prg.progress - 0.001
+        // 10秒ぐらいで0になりますので
+        if (newValue < 0) {
+            // newValueが０より小さくなってしまったら
+            prg.setProgress(0, animated: true)
+            // タイマーを停止させます
+            timer2.invalidate()
+        } else {
+            prg.setProgress(newValue, animated: true)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -71,6 +104,7 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func nextQ(_ sender: Any) {
+        Qindex += 1
         initQ()
     }
     
@@ -100,6 +134,8 @@ class QuestionViewController: UIViewController {
         c3.isEnabled = true
         c4.isEnabled = true
         
+        QuestionIndex.text = "第"+Qindex.description+"問"
+        
         switch correctAnswer { //答えを代入
         case 1:
             answerName = questionData.answer1
@@ -112,6 +148,13 @@ class QuestionViewController: UIViewController {
         default:
             break
         }
+        
+        userChoiceAnswer = 0
+        
+        progress()
+        
+        self.timer = Timer.scheduledTimer(timeInterval:10.1,target: self,selector: #selector(QuestionViewController.judge),userInfo: nil,repeats: false) //タイマー開始
+        
     }
     
     func display(){ //表示と有効化
@@ -138,12 +181,18 @@ class QuestionViewController: UIViewController {
         }
     }
     
-    func judge(){ //正誤判定
+    @objc func judge(){ //正誤判定
+        self.timer.invalidate()
+        self.timer2.invalidate()
         if(userChoiceAnswer == correctAnswer){
             ans.text = "正解！！！"
             isCorrect = true
+        }else if(userChoiceAnswer == 0){
+            ans.text = "時間切れ！正解は「"+answerName+"」でした。"
+            display()
         }else{
             ans.text = "不正解。。。正解は「"+answerName+"」でした。"
         }
     }
+
 }
