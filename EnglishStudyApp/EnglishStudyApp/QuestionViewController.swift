@@ -157,7 +157,7 @@ class QuestionViewController: UIViewController {
         
     }
     
-    func display(){ //表示と有効化
+    func display(){ //ラベル表示とボタン有効化
         ans.isHidden = false
         nextQ.isHidden = false
         
@@ -182,7 +182,7 @@ class QuestionViewController: UIViewController {
     }
     
     @objc func judge(){ //正誤判定
-        self.timer.invalidate()
+        self.timer.invalidate() //タイマーリセット
         self.timer2.invalidate()
         if(userChoiceAnswer == correctAnswer){
             ans.text = "正解！！！"
