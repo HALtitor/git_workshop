@@ -25,7 +25,7 @@ class ScoreViewController: UIViewController {
         
         /* --- 四角形を描画 --- */
         let rectangleLayer = CAShapeLayer.init()
-        let rectangleFrame = CGRect.init(x: 20, y: 310, width: 800, height: 100)
+        let rectangleFrame = CGRect.init(x: 30, y: 310, width: 700, height: 100)
         rectangleLayer.frame = rectangleFrame
         
         // 輪郭の色
@@ -44,7 +44,7 @@ class ScoreViewController: UIViewController {
         
         /* --- 四角形を描画 --- */
         let rectangleLayer2 = CAShapeLayer.init()
-        let rectangleFrame2 = CGRect.init(x: 20, y: 310, width: 8*correctnum*100 / Qnum, height: 100)
+        let rectangleFrame2 = CGRect.init(x: 30, y: 310, width: 7*correctnum*100 / Qnum, height: 100)
         rectangleLayer2.frame = rectangleFrame2
         
         // 輪郭の色
