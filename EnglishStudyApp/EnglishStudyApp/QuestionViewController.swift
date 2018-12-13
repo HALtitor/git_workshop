@@ -22,37 +22,55 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var goTitle: UIButton! //タイトル画面へ遷移
     @IBOutlet weak var QuestionIndex: UILabel! //何問目か
     
-    var timer:Timer = Timer()
+    @IBOutlet weak var kaisetu: UILabel! //解説文
+    
+    var timer:Timer = Timer()//制限時間のタイマー
     
     var correctAnswer = 0 //答えが選択肢の何番めか
     var userChoiceAnswer = 0 //ユーザーの回答した選択肢
     var isCorrect = false //正解か不正解か
     var answerName = "" //答え
-    var Qindex = 1
+//    var Qindex = 1 //今何問目？
+//    var correctCount = 0 //正解数
     
-    
-    let prg:UIProgressView = UIProgressView()
+    let prg:UIProgressView = UIProgressView()//制限時間バーに使う
     var timer2:Timer = Timer()
+    var progress:Float = 0.0
     
-    func progress() {
+    func progressBar() {
         //作って画面に表示
         prg.frame = CGRect(x: 25, y: 100, width: 720, height: 30)
+        prg.transform = CGAffineTransform(scaleX: 1.0, y: 5.0) //横１倍、縦５倍に引き伸ばし
         prg.setProgress(1, animated: true)
+        prg.progressTintColor = UIColor.blue
         view.addSubview(prg)
         
         //バーがだんだん短くなっていくようにTimerでリピートさせる
         self.timer2 = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(QuestionViewController.timerFunc), userInfo: nil, repeats: true)
-        
+    }
+    
+    @objc func restart() {
+        timer2.invalidate()
+        prg.progressTintColor = UIColor.blue
+        progress = 1
+        self.timer2 = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(QuestionViewController.timerFunc), userInfo: nil, repeats: true)
+        prg.setProgress(progress, animated: false)
     }
     //タイマーの中身
     @objc func timerFunc() {
         // prgの現在の数値より少しだけ少ない数値をprgにセット
         let newValue = prg.progress - 0.001
-        // 10秒ぐらいで0になりますので
-        if (newValue < 0) {
-            // newValueが０より小さくなってしまったら
+        
+        if(newValue < 0.6 && newValue >= 0.3){
+            prg.progressTintColor = UIColor.yellow
+            prg.setProgress(newValue, animated: true)
+        }else if(newValue < 0.3) {
+            prg.progressTintColor = UIColor.red
+            prg.setProgress(newValue, animated: true)
+        }else if (newValue < 0) {
+            
             prg.setProgress(0, animated: true)
-            // タイマーを停止させます
+            
             timer2.invalidate()
         } else {
             prg.setProgress(newValue, animated: true)
@@ -67,8 +85,12 @@ class QuestionViewController: UIViewController {
         // 問題文の読込
         QuestionDataManager.sharedInstance.loadQuestion()
         
-        initQ() //ラベル等の初期化
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.correctCount = 0
+        appDelegate.Qindex = 1
         
+        initQ() //ラベル等の初期化
+
     }
     
 
@@ -104,7 +126,11 @@ class QuestionViewController: UIViewController {
     }
     
     @IBAction func nextQ(_ sender: Any) {
-        Qindex += 1
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.Qindex += 1
+//        if(isCorrect == true){
+//            appDelegate.correctCount += 1
+//        }
         initQ()
     }
     
@@ -121,20 +147,27 @@ class QuestionViewController: UIViewController {
         c3.setTitle(questionData.answer3, for: .normal)
         c4.setTitle(questionData.answer4, for: .normal)
         correctAnswer = questionData.correctAnswerNumber
+        kaisetu.text = questionData.kaisetu
         
-        ans.isHidden = true //ラベル等の表示、有効化など
+        //ラベルの表示、trueなら非表示
+        ans.isHidden = true
         nextQ.isHidden = true
+        kaisetu.isHidden = true
         c1.isHidden = false
         c2.isHidden = false
         c3.isHidden = false
         c4.isHidden = false
         isCorrect = false
-        c1.isEnabled = true //trueなら有効,falseなら無効
+        
+        //ボタンの有効化、trueなら有効,falseなら無効
+        c1.isEnabled = true
         c2.isEnabled = true
         c3.isEnabled = true
         c4.isEnabled = true
         
-        QuestionIndex.text = "第"+Qindex.description+"問"
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        QuestionIndex.text = "第"+appDelegate.Qindex.description+"問"
         
         switch correctAnswer { //答えを代入
         case 1:
@@ -151,13 +184,17 @@ class QuestionViewController: UIViewController {
         
         userChoiceAnswer = 0
         
-        progress()
+        if(appDelegate.Qindex == 1){
+            progressBar()
+        }else{
+            restart()
+        }
         
         self.timer = Timer.scheduledTimer(timeInterval:10.1,target: self,selector: #selector(QuestionViewController.judge),userInfo: nil,repeats: false) //タイマー開始
         
     }
     
-    func display(){ //ラベル表示とボタン有効化
+    func display(){ //正解かどうかと次の問題ボタンの表示
         ans.isHidden = false
         nextQ.isHidden = false
         
@@ -165,20 +202,6 @@ class QuestionViewController: UIViewController {
         c2.isEnabled = false
         c3.isEnabled = false
         c4.isEnabled = false
-        if(isCorrect){
-            switch correctAnswer {
-            case 1:
-                c1.isEnabled = true
-            case 2:
-                c2.isEnabled = true
-            case 3:
-                c3.isEnabled = true
-            case 4:
-                c4.isEnabled = true
-            default:
-                break
-            }
-        }
     }
     
     @objc func judge(){ //正誤判定
@@ -187,12 +210,15 @@ class QuestionViewController: UIViewController {
         if(userChoiceAnswer == correctAnswer){
             ans.text = "正解！！！"
             isCorrect = true
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.correctCount += 1
         }else if(userChoiceAnswer == 0){
             ans.text = "時間切れ！正解は「"+answerName+"」でした。"
             display()
         }else{
             ans.text = "不正解。。。正解は「"+answerName+"」でした。"
         }
+        kaisetu.isHidden = false
     }
 
 }

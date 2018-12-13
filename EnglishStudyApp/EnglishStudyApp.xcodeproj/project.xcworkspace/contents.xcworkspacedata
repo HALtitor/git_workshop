@@ -2,6 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:EnglishStudyApp.xcodeproj">
+      location = "group:/Users/e175740/git_workshop/EnglishStudyApp/EnglishStudyApp/csv100&#x554f;option.csv">
+   </FileRef>
+   <Group
+      location = "container:"
+      name = "New Group">
+   </Group>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>

@@ -11,13 +11,10 @@ import Foundation
 class QuestionData {
     // 問題文
     var question: String
-    // 選択肢1
+    //選択肢
     var answer1: String
-    // 選択肢2
     var answer2: String
-    // 選択肢3
     var answer3: String
-    // 選択肢4
     var answer4: String
     
     // 正解の番号
@@ -29,6 +26,9 @@ class QuestionData {
     // 問題文の番号
     var questionNo: Int = 0
     
+    // 解説文
+    var kaisetu: String
+    
     // クラスが生成された時の処理
     init(questionSourceDataArray: [String]) {
         question = questionSourceDataArray[0]
@@ -37,6 +37,7 @@ class QuestionData {
         answer3 = questionSourceDataArray[3]
         answer4 = questionSourceDataArray[4]
         correctAnswerNumber = Int(questionSourceDataArray[5])!
+        kaisetu = questionSourceDataArray[6]
     }
     
     // ユーザが選択した答えが正解かどうか判定する
@@ -76,7 +77,7 @@ class QuestionDataManager {
         nowQuestionIndex = 0
         
         // csvファイルパスを取得
-        guard let csvFilePath = Bundle.main.path(forResource: "csv100問", ofType: "csv") else {
+        guard let csvFilePath = Bundle.main.path(forResource: "100question", ofType: "csv") else {
             // csvファイルなし
             print("csvファイルが存在しません")
             return
@@ -101,15 +102,7 @@ class QuestionDataManager {
         }
     }
     
-    // 次の問題を取り出す
-//    func nextQuestion() -> QuestionData? {
-//        if nowQuestionIndex < questionDataArray.count {
-//            let nextQuestion = questionDataArray[nowQuestionIndex]
-//            nowQuestionIndex += 1
-//            return nextQuestion
-//        }
-//        return nil
-//    }
+
     func nextQuestion() -> QuestionData? {
         if questionDataArray.isEmpty {
             return nil
@@ -119,6 +112,5 @@ class QuestionDataManager {
         questionDataArray.remove(at: nextQuestionIndex)
         return nextQuestion
     }
-    
     
 }
