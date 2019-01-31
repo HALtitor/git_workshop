@@ -84,22 +84,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZ7-dd-BsH">
-                                <rect key="frame" x="105" y="904" width="200" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Go Title"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="UZK-o3-8ui"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VGg-3Y-xXf">
                                 <rect key="frame" x="548" y="904" width="200" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Go Score"/>
                                 <connections>
-                                    <segue destination="aNy-IP-c8i" kind="presentation" id="VP7-gl-A7w"/>
+                                    <action selector="goScore:" destination="hGZ-6c-uLS" eventType="touchUpInside" id="D8P-gf-G1J"/>
+                                    <segue destination="aNy-IP-c8i" kind="presentation" identifier="goScore" id="VP7-gl-A7w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvD-xH-lsi">
@@ -132,6 +124,13 @@
                                     <action selector="c3Action:" destination="hGZ-6c-uLS" eventType="touchUpInside" id="Mdu-n1-mzs"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ans" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpc-gW-27R">
+                                <rect key="frame" x="20" y="593" width="728" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABR-Rc-z4t">
                                 <rect key="frame" x="20" y="496" width="728" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -173,13 +172,24 @@
                                     <action selector="nextQ:" destination="hGZ-6c-uLS" eventType="touchUpInside" id="HHH-tY-C1b"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ans" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpc-gW-27R">
-                                <rect key="frame" x="20" y="593" width="728" height="80"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZ7-dd-BsH">
+                                <rect key="frame" x="20" y="904" width="200" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Go Title"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="UZK-o3-8ui"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fq7-Ks-ZGl">
+                                <rect key="frame" x="548" y="34" width="200" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="読み上げ"/>
+                                <connections>
+                                    <action selector="read:" destination="hGZ-6c-uLS" eventType="touchUpInside" id="ve2-eU-H1d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Tww-mY-Ci2"/>
@@ -196,6 +206,7 @@
                         <outlet property="kaisetu" destination="iQC-Xe-ifb" id="ojm-tg-w6j"/>
                         <outlet property="nextQ" destination="q4F-eY-WU7" id="dVW-fn-CGW"/>
                         <outlet property="qtext" destination="ckl-tW-bT3" id="kRM-xx-Kzc"/>
+                        <outlet property="readButton" destination="fq7-Ks-ZGl" id="ATV-Go-eel"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTo-qu-RGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -231,7 +242,7 @@
                         <viewLayoutGuide key="safeArea" id="6WG-SB-4LL"/>
                     </view>
                     <connections>
-                        <outlet property="scoreLabel" destination="zOA-u9-pgm" id="2cG-L2-RN7"/>
+                        <outlet property="scoreLabel" destination="zOA-u9-pgm" id="lf2-l2-grI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VhG-jX-0WH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -240,6 +251,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NvE-g0-O7f"/>
+        <segue reference="UZK-o3-8ui"/>
     </inferredMetricsTieBreakers>
 </document>
