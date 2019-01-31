@@ -8,7 +8,12 @@
 
 import UIKit
 
+import AVFoundation
+
 class QuestionViewController: UIViewController {
+    
+    // UserDefaults のインスタンス
+    let userDefaults = UserDefaults.standard
     
     @IBOutlet weak var qtext: UILabel! //問題文
     @IBOutlet weak var c1: UIButton! //選択肢1~4
@@ -23,6 +28,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var QuestionIndex: UILabel! //何問目か
     
     @IBOutlet weak var kaisetu: UILabel! //解説文
+    @IBOutlet weak var readButton: UIButton! //問題文読み上げ
     
     var timer:Timer = Timer()//制限時間のタイマー
     
@@ -30,8 +36,7 @@ class QuestionViewController: UIViewController {
     var userChoiceAnswer = 0 //ユーザーの回答した選択肢
     var isCorrect = false //正解か不正解か
     var answerName = "" //答え
-//    var Qindex = 1 //今何問目？
-//    var correctCount = 0 //正解数
+    var QuestionNo = 0 //
     
     let prg:UIProgressView = UIProgressView()//制限時間バーに使う
     var timer2:Timer = Timer()
@@ -56,6 +61,7 @@ class QuestionViewController: UIViewController {
         self.timer2 = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(QuestionViewController.timerFunc), userInfo: nil, repeats: true)
         prg.setProgress(progress, animated: false)
     }
+    
     //タイマーの中身
     @objc func timerFunc() {
         // prgの現在の数値より少しだけ少ない数値をprgにセット
@@ -82,6 +88,7 @@ class QuestionViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
+        
         // 問題文の読込
         QuestionDataManager.sharedInstance.loadQuestion()
         
@@ -90,7 +97,7 @@ class QuestionViewController: UIViewController {
         appDelegate.Qindex = 1
         
         initQ() //ラベル等の初期化
-
+        
     }
     
 
@@ -127,12 +134,19 @@ class QuestionViewController: UIViewController {
     
     @IBAction func nextQ(_ sender: Any) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.Qindex += 1
-//        if(isCorrect == true){
-//            appDelegate.correctCount += 1
-//        }
+        if(appDelegate.Qindex == 99){
+            appDelegate.Qindex += 1
+            nextQ.isEnabled = false
+        }else{
+            appDelegate.Qindex += 1
+        }
         initQ()
     }
+    
+    @IBAction func goScore(_ sender: Any) {
+        
+    }
+    
     
     func initQ(){ //初期化
         // 問題文の取り出し
@@ -148,6 +162,18 @@ class QuestionViewController: UIViewController {
         c4.setTitle(questionData.answer4, for: .normal)
         correctAnswer = questionData.correctAnswerNumber
         kaisetu.text = questionData.kaisetu
+        
+        
+        QuestionNo = questionData.questionNo
+        // デフォルト値
+        userDefaults.register(defaults: [QuestionNo.description+"Qcount": 0])
+        userDefaults.register(defaults: [QuestionNo.description+"Qhitcount": 0])
+        
+        // インクリメント
+        let qcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
+        userDefaults.set(qcount+1, forKey: QuestionNo.description+"Qcount")
+        userDefaults.synchronize()
+        
         
         //ラベルの表示、trueなら非表示
         ans.isHidden = true
@@ -207,18 +233,37 @@ class QuestionViewController: UIViewController {
     @objc func judge(){ //正誤判定
         self.timer.invalidate() //タイマーリセット
         self.timer2.invalidate()
+        let qcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
+        let hitcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
+        
         if(userChoiceAnswer == correctAnswer){
-            ans.text = "正解！！！"
+            
+            // インクリメント
+            let qhitcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
+            userDefaults.set(qhitcount+1, forKey: QuestionNo.description+"Qhitcount")
+            userDefaults.synchronize()
+            
+            let hitcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
+            ans.text = "正解！！！正答率は"+((hitcount*100)/qcount).description+"%でした。"
+            
             isCorrect = true
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.correctCount += 1
         }else if(userChoiceAnswer == 0){
-            ans.text = "時間切れ！正解は「"+answerName+"」でした。"
+            ans.text = "時間切れ！正解は「"+answerName+"」でした。正答率は"+((hitcount*100)/qcount).description+"%でした。"
             display()
         }else{
-            ans.text = "不正解。。。正解は「"+answerName+"」でした。"
+            ans.text = "不正解。。。正解は「"+answerName+"」でした。正答率は"+((hitcount*100)/qcount).description+"%でした。"
         }
         kaisetu.isHidden = false
     }
 
+    @IBAction func read(_ sender: Any) {
+        let talker = AVSpeechSynthesizer()
+        let text = qtext.text
+        let readWord = text!.components(separatedBy: "  ")
+        let utterance = AVSpeechUtterance(string: readWord[0])
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        talker.speak(utterance)
+    }
 }

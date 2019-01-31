@@ -11,6 +11,7 @@ import AVFoundation
 
 class ScoreViewController: UIViewController {
     
+    
     @IBOutlet weak var scoreLabel: UILabel!
     
     @IBOutlet var scoreparcent: UILabel!
