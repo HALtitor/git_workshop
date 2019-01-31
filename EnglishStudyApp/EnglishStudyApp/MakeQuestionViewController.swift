@@ -18,7 +18,7 @@ class MakeQuestionViewController: UIViewController {
     @IBOutlet weak var Commentary: UITextField!
     var CommentaryString = ""
     @IBOutlet weak var Commentary2: UITextField!
-    var Commentary2String = ""
+    var BadCommentary2String = ""
     @IBOutlet weak var Coomentary3: UITextField!
     var Commentary3String = ""
     @IBOutlet weak var Comentary4: UITextField!
@@ -150,6 +150,21 @@ class MakeQuestionViewController: UIViewController {
         print(QuestionNameString)
         
     }
+    @IBAction func GoodAnswer(_ sender: Any) {
+        GoodAnswerString = GoodAnswer.text!
+        print(GoodAnswerString)
+    }
+    
+    @IBAction func CorrectCommentary(_ sender: Any) {
+        CommentaryString = Commentary.text!
+        print(CommentaryString)
+    }
+   
+    @IBAction func BadCommentary2(_ sender: Any) {
+        BadCommentary2String = Commentary2.text!
+        print(CommentaryString)
+    }
+    
     
 }
 

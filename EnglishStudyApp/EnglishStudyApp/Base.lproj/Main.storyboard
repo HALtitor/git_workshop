@@ -296,6 +296,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="GoodAnswer:" destination="hJ0-Y2-fqg" eventType="editingDidEnd" id="IMc-pi-DjL"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="意味" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e1h-9i-fcb">
                                 <rect key="frame" x="148" y="418" width="462" height="30"/>
@@ -303,6 +306,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="CorrectCommentary:" destination="hJ0-Y2-fqg" eventType="editingDidEnd" id="UOC-jO-LNX"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="意味２" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dAn-gE-aRT">
                                 <rect key="frame" x="132" y="513" width="478" height="30"/>
@@ -310,6 +316,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="BadCommentary2:" destination="hJ0-Y2-fqg" eventType="editingDidEnd" id="etE-Uh-u61"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="意味3" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Gs-3e-EXh">
                                 <rect key="frame" x="132" y="587" width="457" height="30"/>
@@ -346,6 +355,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NvE-g0-O7f"/>
+        <segue reference="UZK-o3-8ui"/>
     </inferredMetricsTieBreakers>
 </document>
