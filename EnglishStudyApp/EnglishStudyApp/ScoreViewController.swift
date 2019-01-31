@@ -10,13 +10,12 @@ import UIKit
 
 class ScoreViewController: UIViewController {
     
+    
     @IBOutlet weak var scoreLabel: UILabel!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let Qnum = appDelegate.Qindex
@@ -61,7 +60,8 @@ class ScoreViewController: UIViewController {
 
     }
     
-
+//
+    
     /*
     // MARK: - Navigation
 

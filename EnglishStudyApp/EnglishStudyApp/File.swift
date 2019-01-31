@@ -29,6 +29,7 @@ class QuestionData {
     // 解説文
     var kaisetu: String
     
+    
     // クラスが生成された時の処理
     init(questionSourceDataArray: [String]) {
         question = questionSourceDataArray[0]
