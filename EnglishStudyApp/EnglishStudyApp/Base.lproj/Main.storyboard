@@ -95,7 +95,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FvD-xH-lsi">
-                                <rect key="frame" x="20" y="292" width="728" height="60"/>
+                                <rect key="frame" x="20" y="327" width="728" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.75014729706197103" green="0.99718993899999997" blue="0.96958226393014657" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -105,7 +105,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wdk-Qo-DEF">
-                                <rect key="frame" x="20" y="360" width="728" height="60"/>
+                                <rect key="frame" x="20" y="395" width="728" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.75014729710000005" green="0.99718993899999997" blue="0.96958226390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -115,7 +115,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubf-4c-ve2">
-                                <rect key="frame" x="20" y="428" width="728" height="60"/>
+                                <rect key="frame" x="20" y="463" width="728" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.75014729710000005" green="0.99718993899999997" blue="0.96958226390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -125,14 +125,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ans" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpc-gW-27R">
-                                <rect key="frame" x="20" y="593" width="728" height="80"/>
+                                <rect key="frame" x="20" y="610" width="728" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ABR-Rc-z4t">
-                                <rect key="frame" x="20" y="496" width="728" height="60"/>
+                                <rect key="frame" x="20" y="531" width="728" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.75014729710000005" green="0.99718993899999997" blue="0.96958226390000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
@@ -149,7 +149,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Question" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ckl-tW-bT3">
-                                <rect key="frame" x="20" y="114" width="728" height="170"/>
+                                <rect key="frame" x="20" y="114" width="728" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.72130227219999998" green="0.99718993899999997" blue="0.84496890820000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="50"/>
@@ -157,7 +157,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iQC-Xe-ifb">
-                                <rect key="frame" x="20" y="681" width="728" height="126"/>
+                                <rect key="frame" x="20" y="698" width="728" height="126"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -182,7 +182,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fq7-Ks-ZGl">
-                                <rect key="frame" x="548" y="34" width="200" height="80"/>
+                                <rect key="frame" x="548" y="20" width="200" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="読み上げ"/>
@@ -190,6 +190,13 @@
                                     <action selector="read:" destination="hGZ-6c-uLS" eventType="touchUpInside" id="ve2-eU-H1d"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="correcd rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUp-RK-mJg">
+                                <rect key="frame" x="548" y="253" width="200" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Tww-mY-Ci2"/>
@@ -201,6 +208,7 @@
                         <outlet property="c2" destination="wdk-Qo-DEF" id="C1V-HS-tXP"/>
                         <outlet property="c3" destination="ubf-4c-ve2" id="Lam-Rg-gIE"/>
                         <outlet property="c4" destination="ABR-Rc-z4t" id="mJF-Ui-7hz"/>
+                        <outlet property="correctRate" destination="NUp-RK-mJg" id="t6N-MM-NCp"/>
                         <outlet property="goScore" destination="VGg-3Y-xXf" id="Ta0-UK-HFr"/>
                         <outlet property="goTitle" destination="HZ7-dd-BsH" id="rhJ-Zn-JdT"/>
                         <outlet property="kaisetu" destination="iQC-Xe-ifb" id="ojm-tg-w6j"/>
