@@ -7,20 +7,28 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ScoreViewController: UIViewController {
     
     
     @IBOutlet weak var scoreLabel: UILabel!
     
+    @IBOutlet var scoreparcent: UILabel!
+    
+    var talker = AVSpeechSynthesizer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         // Do any additional setup after loading the view.
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let Qnum = appDelegate.Qindex
         let correctnum = appDelegate.correctCount
         scoreLabel.text = appDelegate.Qindex.description + "問中" +  appDelegate.correctCount.description + "問正解！"
+        
+        scoreparcent.text = String( correctnum * 100 / Qnum) + "%"
         
         /* --- 四角形を描画 --- */
         let rectangleLayer = CAShapeLayer.init()
@@ -58,18 +66,15 @@ class ScoreViewController: UIViewController {
         
         self.view.layer.addSublayer(rectangleLayer2)
 
-    }
-    
-//
-    
-    /*
-    // MARK: - Navigation
+        
+        
+        // 話す内容をセット
+       // let utterance = AVSpeechUtterance(string:"test")
+        // 言語を日本に設定
+      //  utterance.voice = AVSpeechSynthesisVoice(language: "ja-JP")
+        // 実行
+       // self.talker.speak(utterance)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
+}
 }
