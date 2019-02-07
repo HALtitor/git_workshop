@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var correctCount: Int = 0 //正解数
     var Qindex: Int = 1
+    var questionGenre: String = "100question" //問題ジャンル
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
