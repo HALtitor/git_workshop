@@ -280,67 +280,84 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="英単語" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dKA-y9-ck2">
-                                <rect key="frame" x="132" y="228" width="489" height="30"/>
+                                <rect key="frame" x="0.0" y="228" width="768" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="QuestionName:" destination="hJ0-Y2-fqg" eventType="editingDidEnd" id="q0K-IN-osY"/>
+                                    <action selector="QName:" destination="hJ0-Y2-fqg" eventType="editingChanged" id="TUq-fa-qQi"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="回答" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-6y-qkF">
-                                <rect key="frame" x="132" y="324" width="489" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="意味1" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ajp-6y-qkF">
+                                <rect key="frame" x="0.0" y="318" width="757" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="GoodAnswer:" destination="hJ0-Y2-fqg" eventType="editingDidEnd" id="IMc-pi-DjL"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="意味" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e1h-9i-fcb">
-                                <rect key="frame" x="148" y="418" width="462" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="CorrectCommentary:" destination="hJ0-Y2-fqg" eventType="editingDidEnd" id="UOC-jO-LNX"/>
+                                    <action selector="Answer:" destination="hJ0-Y2-fqg" eventType="editingChanged" id="AxI-xV-nuM"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="意味２" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dAn-gE-aRT">
-                                <rect key="frame" x="132" y="513" width="478" height="30"/>
+                                <rect key="frame" x="0.0" y="401" width="768" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="BadCommentary2:" destination="hJ0-Y2-fqg" eventType="editingDidEnd" id="etE-Uh-u61"/>
+                                    <action selector="BadCommentary2:" destination="hJ0-Y2-fqg" eventType="editingChanged" id="MXn-bh-RaV"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="意味3" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Gs-3e-EXh">
-                                <rect key="frame" x="132" y="587" width="457" height="30"/>
+                                <rect key="frame" x="0.0" y="482" width="768" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="BadCommentary3:" destination="hJ0-Y2-fqg" eventType="editingChanged" id="Xuc-eD-hSx"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="意味4" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jsJ-TI-tfM">
-                                <rect key="frame" x="132" y="653" width="457" height="30"/>
+                                <rect key="frame" x="0.0" y="552" width="768" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="BadCommentary4:" destination="hJ0-Y2-fqg" eventType="editingChanged" id="ysg-EL-SSX"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="正解の番号" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3uW-gM-51Z">
+                                <rect key="frame" x="20" y="657" width="728" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="ANum:" destination="hJ0-Y2-fqg" eventType="editingChanged" id="oTc-2Z-f19"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="英単語の意味" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7nx-6B-j12">
+                                <rect key="frame" x="0.0" y="736" width="757" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="CCom:" destination="hJ0-Y2-fqg" eventType="editingChanged" id="NGr-v1-Skk"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Yfg-Im-y0Z"/>
                     </view>
                     <connections>
+                        <outlet property="AnsNum" destination="3uW-gM-51Z" id="3K9-cl-Chl"/>
+                        <outlet property="CComentary" destination="7nx-6B-j12" id="nx5-kT-vni"/>
                         <outlet property="Comentary4" destination="jsJ-TI-tfM" id="lvV-Qa-scg"/>
-                        <outlet property="Commentary" destination="dAn-gE-aRT" id="ooY-Lf-qTA"/>
                         <outlet property="Commentary2" destination="dAn-gE-aRT" id="1A0-iE-j0K"/>
                         <outlet property="Coomentary3" destination="8Gs-3e-EXh" id="l7g-Nd-G2t"/>
                         <outlet property="GoodAnswer" destination="ajp-6y-qkF" id="PMs-pY-IRw"/>

@@ -18,12 +18,17 @@ class MakeQuestionViewController: UIViewController {
     @IBOutlet weak var Commentary: UITextField!
     var CommentaryString = ""
     @IBOutlet weak var Commentary2: UITextField!
-    var BadCommentary2String = ""
+    var Commentary2String = ""
     @IBOutlet weak var Coomentary3: UITextField!
     var Commentary3String = ""
     @IBOutlet weak var Comentary4: UITextField!
     var Commentary4String = ""
     
+    @IBOutlet weak var AnsNum: UITextField!
+    var AnsNumString = ""
+    
+    @IBOutlet weak var CComentary: UITextField!
+    var CComentaryString = ""
 
     @IBOutlet var MakeButten: UIButton!
     var age:String = "testtesttest"
@@ -61,31 +66,11 @@ class MakeQuestionViewController: UIViewController {
            
         print(url)
         do{
-            appendText(fileURL: url, string: age)
+            //appendText(fileURL: url, string: age)
             readTextFile(fileURL: url)
         }
         
-        /*
-        do {
-            try writeToFile.write(to: url, atomically: true, encoding: String.Encoding.utf8)
-            }
- */
-        /*
-        // DocumentディレクトリのfileURLを取得
-        if let documentDirectoryFileURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last {
-            
-            // ディレクトリのパスにファイル名をつなげてファイルのフルパスを作る
-            let targetTextFilePath = documentDirectoryFileURL.appendingPathComponent(textFileName)
-            
-            print("書き込むファイルのパス: \(targetTextFilePath)")
-            appendText(fileURL: targetTextFilePath,string: initialText)
-            do {
-                try initialText.write(to: targetTextFilePath, atomically: true, encoding: String.Encoding.utf8)
-            } catch let error as NSError {
-                print("failed to write: \(error)")
-            }
-        }
-        */
+
  
     }
  
@@ -95,11 +80,32 @@ class MakeQuestionViewController: UIViewController {
             let fileHandle = try FileHandle(forWritingTo: fileURL)
             
             // 改行を入れる
-            let stringToWrite = "\n" + string
-            
+            let stringToWrite = "\n" 
+            let kannma = ","
+            let bunn = "の意味は何？"
+            let space = "  "
+            let kote = "\""
             // ファイルの最後に追記
             fileHandle.seekToEndOfFile()
-
+            fileHandle.write(QuestionNameString.data(using: String.Encoding.utf8)!)
+            fileHandle.write(bunn.data(using: String.Encoding.utf8)!)
+            
+            fileHandle.write(kannma.data(using: String.Encoding.utf8)!)
+            fileHandle.write(GoodAnswerString.data(using: String.Encoding.utf8)!)
+             fileHandle.write(kannma.data(using: String.Encoding.utf8)!)
+            fileHandle.write(Commentary2String.data(using: String.Encoding.utf8)!)
+             fileHandle.write(kannma.data(using: String.Encoding.utf8)!)
+            fileHandle.write(Commentary3String.data(using: String.Encoding.utf8)!)
+             fileHandle.write(kannma.data(using: String.Encoding.utf8)!)
+            fileHandle.write(Commentary4String.data(using: String.Encoding.utf8)!)
+            fileHandle.write(kannma.data(using: String.Encoding.utf8)!)
+              fileHandle.write(AnsNumString.data(using: String.Encoding.utf8)!)
+             fileHandle.write(kannma.data(using: String.Encoding.utf8)!)
+            fileHandle.write(kote.data(using: String.Encoding.utf8)!)
+            fileHandle.write(QuestionNameString.data(using: String.Encoding.utf8)!)
+             fileHandle.write(space.data(using: String.Encoding.utf8)!)
+             fileHandle.write(CComentaryString.data(using: String.Encoding.utf8)!)
+            fileHandle.write(kote.data(using: String.Encoding.utf8)!)
             fileHandle.write(stringToWrite.data(using: String.Encoding.utf8)!)
             print("オッケー")
         } catch let error as NSError {
@@ -126,57 +132,50 @@ class MakeQuestionViewController: UIViewController {
         let url = URL(fileURLWithPath: csvFilePath)
         appendText(fileURL: url, string:age)
         readTextFile(fileURL: url)
-/*
-        let outputStr = dataList.joined(separator: "\n")
-        print("3 通過・outputStr -> \(outputStr)")
-        do {
-            if(outputStr == "") {
-                //部活配列が空の場合はユーザーが保存したCSVファイルを削除する。
-                try fileManager.removeItem(atPath: userPath)
-            } else {
-                //ファイルを出力する。
-                try outputStr.write(toFile: userPath, atomically: false, encoding: String.Encoding.utf8 )
-            }
-        } catch {
-            print(error)
-        }
-    }
- */
+
     }
 
-    @IBAction func QuestionName(_ textField: UITextField) {
-        // TextFieldから文字を取得
+
+    @IBAction func QName(_ sender: Any) {
         QuestionNameString = QuesionName.text!
-        print(QuestionNameString)
-        
-    }
-    @IBAction func GoodAnswer(_ sender: Any) {
-        GoodAnswerString = GoodAnswer.text!
-        print(GoodAnswerString)
+      
     }
     
-    @IBAction func CorrectCommentary(_ sender: Any) {
-        CommentaryString = Commentary.text!
-        print(CommentaryString)
+    @IBAction func Answer(_ sender: Any) {
+       GoodAnswerString = GoodAnswer.text!
+       
     }
-   
+    
+    @IBAction func BadCommentary1(_ sender: Any) {
+        CommentaryString = Commentary.text!
+       
+    }
+
     @IBAction func BadCommentary2(_ sender: Any) {
-        BadCommentary2String = Commentary2.text!
-        print(CommentaryString)
+        Commentary2String = Commentary2.text!
+       
+    }
+    
+    @IBAction func BadCommentary3(_ sender: Any) {
+        Commentary3String = Coomentary3.text!
+      
+    }
+    @IBAction func BadCommentary4(_ sender: Any) {
+        Commentary4String = Comentary4.text!
+       
+    }
+    
+    @IBAction func ANum(_ sender: Any) {
+         AnsNumString = AnsNum.text!
+    }
+    
+    @IBAction func CCom(_ sender: Any) {
+        CComentaryString = CComentary.text!
     }
     
     
 }
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 
