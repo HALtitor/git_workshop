@@ -6,6 +6,7 @@
 //  Copyright © 2018 uehara kazuma. All rights reserved.
 //
 
+import UIKit
 import Foundation
 
 class QuestionData {
@@ -77,8 +78,10 @@ class QuestionDataManager {
         // 現在の問題のインデックスを初期化
         nowQuestionIndex = 0
         
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         // csvファイルパスを取得
-        guard let csvFilePath = Bundle.main.path(forResource: "100question", ofType: "csv") else {
+        guard let csvFilePath = Bundle.main.path(forResource: appDelegate.questionGenre, ofType: "csv") else {
             // csvファイルなし
             print("csvファイルが存在しません")
             return
