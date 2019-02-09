@@ -34,7 +34,7 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var readButton: UIButton!
     
     @IBOutlet weak var correctRate: UILabel!
-    
+   
     var timer:Timer = Timer()//制限時間のタイマー
     
     var correctAnswer = 0 //答えが選択肢の何番めか
@@ -221,8 +221,11 @@ class QuestionViewController: UIViewController {
         let qcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
         let hitcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
         
-//        correctRate.text = "正答率："+((hitcount*100)/qcount).description+"%"
-        
+        if(qcount==0){
+            correctRate.text="まだ回答がありません"
+        }else{
+            correctRate.text = "正答率："+((hitcount*100)/qcount).description+"%"
+        }
         // インクリメント
         let qcountinc: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
         userDefaults.set(qcountinc+1, forKey: QuestionNo.description+"Qcount")

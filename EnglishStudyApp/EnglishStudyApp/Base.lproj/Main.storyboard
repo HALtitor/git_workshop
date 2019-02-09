@@ -186,6 +186,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Read"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCI-4z-ShO">
+                                <rect key="frame" x="528" y="269" width="201" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Tww-mY-Ci2"/>
@@ -197,6 +204,7 @@
                         <outlet property="c2" destination="wdk-Qo-DEF" id="C1V-HS-tXP"/>
                         <outlet property="c3" destination="ubf-4c-ve2" id="Lam-Rg-gIE"/>
                         <outlet property="c4" destination="ABR-Rc-z4t" id="mJF-Ui-7hz"/>
+                        <outlet property="correctRate" destination="gCI-4z-ShO" id="8GE-si-97Q"/>
                         <outlet property="goScore" destination="VGg-3Y-xXf" id="Ta0-UK-HFr"/>
                         <outlet property="goTitle" destination="HZ7-dd-BsH" id="rhJ-Zn-JdT"/>
                         <outlet property="kaisetu" destination="iQC-Xe-ifb" id="ojm-tg-w6j"/>
