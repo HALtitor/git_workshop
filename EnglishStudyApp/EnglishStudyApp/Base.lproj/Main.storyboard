@@ -64,13 +64,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Go Question"/>
                                 <connections>
+                                    <action selector="defaultQ:" destination="hFd-bc-erg" eventType="touchUpInside" id="0vd-Br-pMc"/>
                                     <segue destination="hGZ-6c-uLS" kind="presentation" id="sxU-Mf-qB7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AVO-hz-yKN">
+                                <rect key="frame" x="20" y="712" width="728" height="135"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="作った問題"/>
+                                <connections>
+                                    <action selector="customQ:" destination="hFd-bc-erg" eventType="touchUpInside" id="H9b-I4-YcY"/>
+                                    <segue destination="hGZ-6c-uLS" kind="presentation" id="BO6-EM-g5v"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YW6-fi-f1x"/>
                     </view>
+                    <connections>
+                        <outlet property="custom" destination="AVO-hz-yKN" id="NH5-GO-KzY"/>
+                        <outlet property="default" destination="sgG-jE-K2b" id="AIz-6d-0f3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajg-RM-eaj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -390,6 +405,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="BO6-EM-g5v"/>
         <segue reference="UZK-o3-8ui"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,14 +9,31 @@
 import UIKit
 
 class MenuViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var `default`: UIButton!
+    
+    @IBOutlet weak var custom: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    
+    @IBAction func defaultQ(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.questionGenre = "100question"
+    }
+    
+    @IBAction func customQ(_ sender: Any) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.questionGenre = "MakeQuestion"
+    }
+    
+    
     /*
     // MARK: - Navigation
 
