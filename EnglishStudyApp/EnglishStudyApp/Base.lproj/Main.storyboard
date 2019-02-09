@@ -64,6 +64,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Go Question"/>
                                 <connections>
+                                    <action selector="GoQue:forEvent:" destination="hFd-bc-erg" eventType="touchUpInside" id="OsR-xV-Pp7"/>
                                     <segue destination="hGZ-6c-uLS" kind="presentation" id="sxU-Mf-qB7"/>
                                 </connections>
                             </button>
@@ -73,7 +74,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Go Userinfo"/>
                                 <connections>
-                                    <segue destination="e1e-gX-lTQ" kind="presentation" identifier="Segue" id="DYT-Mn-ybn"/>
+                                    <segue destination="e1e-gX-lTQ" kind="presentation" identifier="segue" id="DYT-Mn-ybn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -167,7 +168,7 @@
                                     <navigationItem title="infomation" id="IWx-y5-zEZ">
                                         <barButtonItem key="leftBarButtonItem" title="戻る" id="HLV-oi-mgm">
                                             <connections>
-                                                <segue destination="e1e-gX-lTQ" kind="presentation" identifier="Segue" id="Nt5-ys-9zk"/>
+                                                <segue destination="e1e-gX-lTQ" kind="presentation" identifier="" id="Nt5-ys-9zk"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>

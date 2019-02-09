@@ -11,8 +11,18 @@ import UIKit
 class MenuViewController: UIViewController {
 
     
-    let f = DateFormatter()
-    var date: [String] = []
+    //let f = DateFormatter()
+    var DATE: [String] = []
+    let dateFormater = DateFormatter()
+    
+    
+    @IBAction func GoQue(_ sender: UIButton, forEvent event: UIEvent) {
+        dateFormater.locale = Locale(identifier: "ja_JP")
+        dateFormater.dateFormat = "yyyy/MM/dd HH:mm:ss"
+        let date = dateFormater.string(from: Date())
+        DATE.append(date)
+    }
+    
     
     
     
