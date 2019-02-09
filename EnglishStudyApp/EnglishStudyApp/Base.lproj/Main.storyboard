@@ -73,7 +73,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Go Userinfo"/>
                                 <connections>
-                                    <segue destination="e1e-gX-lTQ" kind="presentation" identifier="Segue" id="On5-VT-yVa"/>
+                                    <segue destination="e1e-gX-lTQ" kind="presentation" identifier="Segue" id="DYT-Mn-ybn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -99,7 +99,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <state key="normal" title="Go Mune"/>
                                 <connections>
-                                    <segue destination="hFd-bc-erg" kind="presentation" identifier="Segue" id="2xs-vC-Ibw"/>
+                                    <segue destination="hFd-bc-erg" kind="presentation" identifier="" id="TNo-LJ-x7I"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Opg-K0-Rk9">
@@ -114,15 +114,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="88" id="o18-pj-scB" customClass="TableViewCell" customModule="EnglishStudyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="728" height="88"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="118" id="o18-pj-scB" customClass="TableViewCell" customModule="EnglishStudyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="728" height="118"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o18-pj-scB" id="TE1-qc-9ef" customClass="TableViewCell" customModule="EnglishStudyApp" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="728" height="87.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="728" height="117.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hs4-6p-flZ">
-                                                    <rect key="frame" x="56" y="33" width="71" height="36"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hs4-6p-flZ">
+                                                    <rect key="frame" x="15" y="0.0" width="713" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                     <nil key="textColor"/>
@@ -173,10 +173,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR6-cz-pqf">
-                                <rect key="frame" x="346" y="482" width="117" height="60"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR6-cz-pqf">
+                                <rect key="frame" x="90" y="183" width="596" height="460"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -190,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bex-h1-v32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1952" y="1017"/>
+            <point key="canvasLocation" x="1951.5625" y="1016.6015624999999"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="Ndt-if-Srm">
@@ -506,9 +506,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nMj-ZP-btx"/>
-        <segue reference="Nt5-ys-9zk"/>
-        <segue reference="2xs-vC-Ibw"/>
+        <segue reference="DYT-Mn-ybn"/>
+        <segue reference="TNo-LJ-x7I"/>
         <segue reference="UZK-o3-8ui"/>
     </inferredMetricsTieBreakers>
 </document>
