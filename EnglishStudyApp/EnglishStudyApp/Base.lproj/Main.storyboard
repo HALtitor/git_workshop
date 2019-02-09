@@ -173,12 +173,26 @@
                                     <action selector="nextQ:" destination="hGZ-6c-uLS" eventType="touchUpInside" id="HHH-tY-C1b"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ans" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0T-dZ-dND">
+                                <rect key="frame" x="20" y="629" width="728" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTp-ho-7dD">
+                                <rect key="frame" x="625" y="28" width="104" height="69"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Read"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Tww-mY-Ci2"/>
                     </view>
                     <connections>
                         <outlet property="QuestionIndex" destination="av3-el-dW8" id="aTH-V0-MNX"/>
+                        <outlet property="ans" destination="E0T-dZ-dND" id="dRy-e6-EH3"/>
                         <outlet property="c1" destination="FvD-xH-lsi" id="KOA-a5-cf8"/>
                         <outlet property="c2" destination="wdk-Qo-DEF" id="C1V-HS-tXP"/>
                         <outlet property="c3" destination="ubf-4c-ve2" id="Lam-Rg-gIE"/>
@@ -188,6 +202,7 @@
                         <outlet property="kaisetu" destination="iQC-Xe-ifb" id="ojm-tg-w6j"/>
                         <outlet property="nextQ" destination="q4F-eY-WU7" id="dVW-fn-CGW"/>
                         <outlet property="qtext" destination="ckl-tW-bT3" id="kRM-xx-Kzc"/>
+                        <outlet property="readButton" destination="KTp-ho-7dD" id="z7c-fh-yxk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pTo-qu-RGF" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -20,7 +20,9 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var c2: UIButton!
     @IBOutlet weak var c3: UIButton!
     @IBOutlet weak var c4: UIButton!
-    @IBOutlet weak var ans: UILabel! //正解かどうかを表示
+    //@IBOutlet weak var ans: UILabel! //正解かどうかを表示
+    @IBOutlet weak var ans: UILabel!
+    
     @IBOutlet weak var nextQ: UIButton! //次の問題へ行く
     
     @IBOutlet weak var goScore: UIButton! //スコア画面へ遷移
@@ -28,7 +30,8 @@ class QuestionViewController: UIViewController {
     @IBOutlet weak var QuestionIndex: UILabel! //何問目か
     
     @IBOutlet weak var kaisetu: UILabel! //解説文
-    @IBOutlet weak var readButton: UIButton! //問題文読み上げ
+   // @IBOutlet weak var readButton: UIButton! //問題文読み上げ
+    @IBOutlet weak var readButton: UIButton!
     
     @IBOutlet weak var correctRate: UILabel!
     
@@ -218,7 +221,7 @@ class QuestionViewController: UIViewController {
         let qcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
         let hitcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
         
-        correctRate.text = "正答率："+((hitcount*100)/qcount).description+"%"
+//        correctRate.text = "正答率："+((hitcount*100)/qcount).description+"%"
         
         // インクリメント
         let qcountinc: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
