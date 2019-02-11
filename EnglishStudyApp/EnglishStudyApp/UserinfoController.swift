@@ -10,35 +10,40 @@ import UIKit
 
 class UserinfoController: UIViewController , UITableViewDelegate, UITableViewDataSource{
     
-    var DATE: [String] = []
+    //  userDefaultsの定義
+    var userDefaults = UserDefaults.standard
+    
+    var getDate: [String] = []
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // userDefaultsに保存された値の取得
+        let userDATE:[String] = userDefaults.object(forKey: "SETDATE") as! [String]
+        getDate = userDATE
+    }
     
     // 遷移先のViewControllerに渡す変数
     var giveData: String = ""
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return DATE.count
+        return getDate.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let Cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
-         Cell.name.text = DATE[indexPath.item]
+         Cell.name.text = getDate[indexPath.item]
         return Cell
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-    
   
     // cellが押されたときに呼ばれる関数
     // 画面遷移の処理もここで書いている
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 押されたときのcellのlabelの文字列をViewControllerに渡したいので、一旦、giveDataに入れとく
         
-            giveData = DATE[indexPath.item]
+            giveData = getDate[indexPath.item]
+        
             // Segueを使った画面遷移を行う関数
             performSegue(withIdentifier: "Segue", sender: nil)
         
@@ -51,4 +56,5 @@ class UserinfoController: UIViewController , UITableViewDelegate, UITableViewDat
             vc.receiveData = giveData
         }
     }
+    
 }
