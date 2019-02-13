@@ -42,6 +42,7 @@ class QuestionViewController: UIViewController {
     var isCorrect = false //正解か不正解か
     var answerName = "" //答え
     var QuestionNo = 0 //
+    var questionGenre = ""
     
     let prg:UIProgressView = UIProgressView()//制限時間バーに使う
     var timer2:Timer = Timer()
@@ -161,6 +162,9 @@ class QuestionViewController: UIViewController {
             // 取得できずに終了
             return
         }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
         // 問題文のセット
         qtext.text = questionData.question
         c1.setTitle(questionData.answer1, for: .normal)
@@ -172,9 +176,12 @@ class QuestionViewController: UIViewController {
         
         
         QuestionNo = questionData.questionNo
+        questionGenre = appDelegate.questionGenre
+        
+        
         // デフォルト値
-        userDefaults.register(defaults: [QuestionNo.description+"Qcount": 0])
-        userDefaults.register(defaults: [QuestionNo.description+"Qhitcount": 0])
+        userDefaults.register(defaults: [questionGenre.description+QuestionNo.description+"Qcount": 0])
+        userDefaults.register(defaults: [questionGenre.description+QuestionNo.description+"Qhitcount": 0])
         
         
         //ラベルの表示、trueなら非表示
@@ -193,7 +200,6 @@ class QuestionViewController: UIViewController {
         c3.isEnabled = true
         c4.isEnabled = true
         
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
         
         QuestionIndex.text = "第"+appDelegate.Qindex.description+"問"
         
@@ -218,8 +224,8 @@ class QuestionViewController: UIViewController {
             restart()
         }
         
-        let qcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
-        let hitcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
+        let qcount: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qcount") as! Int
+        let hitcount: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qhitcount") as! Int
         
         if(qcount==0){
             correctRate.text="まだ回答がありません"
@@ -227,8 +233,8 @@ class QuestionViewController: UIViewController {
             correctRate.text = "正答率："+((hitcount*100)/qcount).description+"%"
         }
         // インクリメント
-        let qcountinc: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
-        userDefaults.set(qcountinc+1, forKey: QuestionNo.description+"Qcount")
+        let qcountinc: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qcount") as! Int
+        userDefaults.set(qcountinc+1, forKey: questionGenre.description+QuestionNo.description+"Qcount")
         userDefaults.synchronize()
         
         self.timer = Timer.scheduledTimer(timeInterval:10.1,target: self,selector: #selector(QuestionViewController.judge),userInfo: nil,repeats: false) //タイマー開始
@@ -248,17 +254,17 @@ class QuestionViewController: UIViewController {
     @objc func judge(){ //正誤判定
         self.timer.invalidate() //タイマーリセット
         self.timer2.invalidate()
-        let qcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qcount") as! Int
-        let hitcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
+        let qcount: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qcount") as! Int
+        let hitcount: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qhitcount") as! Int
         
         if(userChoiceAnswer == correctAnswer){
             
             // インクリメント
-            let hitcountinc: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
-            userDefaults.set(hitcountinc+1, forKey: QuestionNo.description+"Qhitcount")
+            let hitcountinc: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qhitcount") as! Int
+            userDefaults.set(hitcountinc+1, forKey: questionGenre.description+QuestionNo.description+"Qhitcount")
             userDefaults.synchronize()
             
-            let hitcount: Int = userDefaults.object(forKey: QuestionNo.description+"Qhitcount") as! Int
+            let hitcount: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qhitcount") as! Int
             ans.text = "正解！！！正答率は"+((hitcount*100)/qcount).description+"%でした。"
             
             isCorrect = true
