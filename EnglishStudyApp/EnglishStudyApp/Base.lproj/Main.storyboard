@@ -64,29 +64,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Go Question"/>
                                 <connections>
-
-                                    <action selector="GoQue:forEvent:" destination="hFd-bc-erg" eventType="touchUpInside" id="OsR-xV-Pp7"/>
-                                    <segue destination="hGZ-6c-uLS" kind="presentation" id="sxU-Mf-qB7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="16s-cH-5bZ">
-                                <rect key="frame" x="284" y="757" width="200" height="86"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Go Userinfo"/>
-                                <connections>
-                                    <action selector="GoUser:" destination="hFd-bc-erg" eventType="touchUpInside" id="2KM-sy-LAY"/>
-                                    <segue destination="e1e-gX-lTQ" kind="presentation" identifier="hoge" id="kfU-JV-kSI"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" text="制限時間10秒以内に4つの選択肢から1つ選んでください　　　　　　さらに問題作成ページもあるので自分で問題も作ってみよう" translatesAutoresizingMaskIntoConstraints="NO" id="QWj-Fq-sJh">
-                                <rect key="frame" x="190" y="199" width="389" height="193"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-
                                     <action selector="defaultQ:" destination="hFd-bc-erg" eventType="touchUpInside" id="0vd-Br-pMc"/>
                                     <segue destination="hGZ-6c-uLS" kind="presentation" id="sxU-Mf-qB7"/>
                                 </connections>
@@ -101,7 +78,6 @@
                                     <segue destination="hGZ-6c-uLS" kind="presentation" id="BO6-EM-g5v"/>
                                 </connections>
                             </button>
-
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YW6-fi-f1x"/>
@@ -522,6 +498,15 @@
                                     <action selector="MakeQuestionDoing:" destination="hJ0-Y2-fqg" eventType="touchUpInside" id="keA-Uj-88p"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A5Q-Vg-V7h">
+                                <rect key="frame" x="249" y="900" width="271" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
+                                <state key="normal" title="Go Title"/>
+                                <connections>
+                                    <segue destination="hFd-bc-erg" kind="presentation" id="NF2-ti-WBF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Yfg-Im-y0Z"/>
@@ -544,12 +529,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-
         <segue reference="Nt5-ys-9zk"/>
-        <segue reference="TNo-LJ-x7I"/>
-
         <segue reference="BO6-EM-g5v"/>
-
+        <segue reference="NF2-ti-WBF"/>
         <segue reference="UZK-o3-8ui"/>
     </inferredMetricsTieBreakers>
 </document>
