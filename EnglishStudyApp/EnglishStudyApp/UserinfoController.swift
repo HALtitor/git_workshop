@@ -24,8 +24,8 @@ class UserinfoController: UIViewController , UITableViewDelegate, UITableViewDat
     
     var seiseki: String=""
     var percentage: String=""
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // userDefaultsに保存された値の取得
@@ -48,23 +48,23 @@ class UserinfoController: UIViewController , UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let Cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
-         Cell.name.text = getDate[indexPath.item]
+        Cell.name.text = getDate[indexPath.item]
         return Cell
     }
-  
+    
     // cellが押されたときに呼ばれる関数
     // 画面遷移の処理もここで書いている
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 押されたときのcellのlabelの文字列をViewControllerに渡したいので、一旦、giveDataに入れとく
         
-            giveData = getInfo_seikaisu[indexPath.item]
-            givedata = getInfo_percentage[indexPath.item]
+        giveData = getInfo_seikaisu[indexPath.item]
+        givedata = getInfo_percentage[indexPath.item]
         
-            // Segueを使った画面遷移を行う関数
-            performSegue(withIdentifier: "Segue", sender: nil)
+        // Segueを使った画面遷移を行う関数
+        performSegue(withIdentifier: "Segue", sender: nil)
         
     }
-
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "Segue" {
