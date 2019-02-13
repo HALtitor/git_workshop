@@ -41,7 +41,7 @@ class MakeQuestionViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        AnsNum.keyboardType = UIKeyboardType.decimalPad
+        AnsNum.keyboardType = UIKeyboardType.numberPad
         QuesionName.keyboardType = UIKeyboardType.alphabet
         createAndWriteTextFile()
      //   appendText(fileURL: targetTextFilePath , string: age)
