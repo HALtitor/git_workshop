@@ -26,7 +26,7 @@ class MakeQuestionViewController: UIViewController {
     
     @IBOutlet weak var AnsNum: UITextField!
     var AnsNumString = ""
-    
+   
     @IBOutlet weak var CComentary: UITextField!
     var CComentaryString = ""
 
@@ -41,8 +41,8 @@ class MakeQuestionViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        
+        AnsNum.keyboardType = UIKeyboardType.decimalPad
+        QuesionName.keyboardType = UIKeyboardType.alphabet
         createAndWriteTextFile()
      //   appendText(fileURL: targetTextFilePath , string: age)
      //   readTextFile(fileURL: targetTextFilePath)
