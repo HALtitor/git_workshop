@@ -12,23 +12,23 @@ class MakeQuestionViewController: UIViewController {
     
     
     @IBOutlet weak var QuesionName: UITextField!
-    var QuestionNameString = ""
+    var QuestionNameString = "word"
     @IBOutlet weak var GoodAnswer: UITextField!
-    var GoodAnswerString  = ""
+    var GoodAnswerString  = "選択肢1"
     @IBOutlet weak var Commentary: UITextField!
-    var CommentaryString = ""
+    var CommentaryString = "選択肢1"
     @IBOutlet weak var Commentary2: UITextField!
-    var Commentary2String = ""
+    var Commentary2String = "選択肢2"
     @IBOutlet weak var Coomentary3: UITextField!
-    var Commentary3String = ""
+    var Commentary3String = "選択肢3"
     @IBOutlet weak var Comentary4: UITextField!
-    var Commentary4String = ""
+    var Commentary4String = "選択肢4"
     
     @IBOutlet weak var AnsNum: UITextField!
-    var AnsNumString = ""
+    var AnsNumString = "1"
    
     @IBOutlet weak var CComentary: UITextField!
-    var CComentaryString = ""
+    var CComentaryString = "解説"
 
     @IBOutlet var MakeButten: UIButton!
     var age:String = "testtesttest"
@@ -166,7 +166,22 @@ class MakeQuestionViewController: UIViewController {
     }
     
     @IBAction func ANum(_ sender: Any) {
-         AnsNumString = AnsNum.text!
+        if AnsNum.text! == "1"{
+            AnsNumString = AnsNum.text!
+        }
+        
+        if AnsNum.text! == "2"{
+            AnsNumString = AnsNum.text!
+        }
+        
+        if AnsNum.text! == "3"{
+            AnsNumString = AnsNum.text!
+        }
+        
+        if AnsNum.text! == "4"{
+            AnsNumString = AnsNum.text!
+        }
+        
     }
     
     @IBAction func CCom(_ sender: Any) {
