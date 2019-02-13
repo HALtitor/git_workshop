@@ -132,7 +132,13 @@ class MakeQuestionViewController: UIViewController {
         let url = URL(fileURLWithPath: csvFilePath)
         appendText(fileURL: url, string:age)
         readTextFile(fileURL: url)
-
+        QuesionName.text! = ""
+        GoodAnswer.text! = ""
+        Commentary2.text! = ""
+        Coomentary3.text! = ""
+        Comentary4.text! = ""
+        AnsNum.text! = ""
+         CComentary.text! = ""
     }
 
 
