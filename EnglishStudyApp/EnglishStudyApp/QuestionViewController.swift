@@ -44,6 +44,7 @@ class QuestionViewController: UIViewController {
     var QuestionNo = 0 //
     var questionGenre = ""
     
+    
     let prg:UIProgressView = UIProgressView()//制限時間バーに使う
     var timer2:Timer = Timer()
     var progress:Float = 0.0
@@ -106,7 +107,20 @@ class QuestionViewController: UIViewController {
         
         initQ() //ラベル等の初期化
         
+        //日付のフォーマットを指定する。
+        let dateFormater = DateFormatter()
+        
+        dateFormater.locale = Locale(identifier: "ja_JP")
+        dateFormater.dateFormat = "yyyy/MM/dd"
+        
+        //日付をStringに変換する
+        let sDate = dateFormater.string(from: Date())
+        
+        userDefaults.register(defaults:[sDate+"Qcount": 0])
+        userDefaults.register(defaults:[sDate+"Qhitcount": 0])
+        
     }
+    
     
 
     /*
@@ -249,19 +263,45 @@ class QuestionViewController: UIViewController {
         c2.isEnabled = false
         c3.isEnabled = false
         c4.isEnabled = false
+        
+//        let dateFormater = DateFormatter()
+//        dateFormater.locale = Locale(identifier: "ja_JP")
+//        dateFormater.dateFormat = "yyyy/MM/dd"
+//        let sDate = dateFormater.string(from: Date())
+//        let todayQcount: Int = userDefaults.object(forKey: sDate+"Qcount") as! Int
+//        let todayQhitcount: Int = userDefaults.object(forKey: sDate+"Qhitcount") as! Int
+//
+//        kaisetu.text = "今日解いた問題数は"+todayQcount.description+"問です。正解した問題数は"+todayQhitcount.description+"問です。正答率は"+((todayQhitcount*100)/todayQcount).description+"%です。"
     }
     
     @objc func judge(){ //正誤判定
         self.timer.invalidate() //タイマーリセット
         self.timer2.invalidate()
+        
+        let dateFormater = DateFormatter()
+        dateFormater.locale = Locale(identifier: "ja_JP")
+        dateFormater.dateFormat = "yyyy/MM/dd"
+        let sDate = dateFormater.string(from: Date())
+        
         let qcount: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qcount") as! Int
+        let todayQcount: Int = userDefaults.object(forKey: sDate+"Qcount") as! Int
+        
         let hitcount: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qhitcount") as! Int
+        let todayQhitcount: Int = userDefaults.object(forKey: sDate+"Qhitcount") as! Int
+        
+        // インクリメント
+        let qcountinc: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qcount") as! Int
+        userDefaults.set(qcountinc+1, forKey: questionGenre.description+QuestionNo.description+"Qcount")
+        userDefaults.set(todayQcount+1, forKey: sDate+"Qcount")
+        userDefaults.synchronize()
         
         if(userChoiceAnswer == correctAnswer){
             
             // インクリメント
             let hitcountinc: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qhitcount") as! Int
             userDefaults.set(hitcountinc+1, forKey: questionGenre.description+QuestionNo.description+"Qhitcount")
+            userDefaults.set(todayQhitcount+1, forKey: sDate+"Qhitcount")
+            
             userDefaults.synchronize()
             
             let hitcount: Int = userDefaults.object(forKey: questionGenre.description+QuestionNo.description+"Qhitcount") as! Int
