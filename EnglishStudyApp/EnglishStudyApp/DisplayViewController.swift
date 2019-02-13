@@ -11,11 +11,15 @@ import UIKit
 class DisplayViewController: UIViewController {
 
     @IBOutlet weak var Label: UILabel!
+    @IBOutlet weak var percentage: UILabel!
+    
     var receiveData: String = ""
+    var receivedata: String=""
     override func viewDidLoad() {
         super.viewDidLoad()
 
       Label.text = receiveData
+      percentage.text = receivedata
     }
     
 

@@ -78,6 +78,13 @@
                                     <segue destination="e1e-gX-lTQ" kind="presentation" identifier="hoge" id="kfU-JV-kSI"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" text="制限時間10秒以内に4つの選択肢から1つ選んでください　　　　　　さらに問題作成ページもあるので自分で問題も作ってみよう" translatesAutoresizingMaskIntoConstraints="NO" id="QWj-Fq-sJh">
+                                <rect key="frame" x="190" y="199" width="389" height="193"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YW6-fi-f1x"/>
@@ -176,9 +183,16 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VR6-cz-pqf">
-                                <rect key="frame" x="90" y="183" width="596" height="460"/>
+                                <rect key="frame" x="86" y="262" width="596" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MAx-tC-NJ2">
+                                <rect key="frame" x="249" y="573" width="284" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -188,6 +202,7 @@
                     </view>
                     <connections>
                         <outlet property="Label" destination="VR6-cz-pqf" id="ykS-hR-55E"/>
+                        <outlet property="percentage" destination="MAx-tC-NJ2" id="zm9-iR-5Tl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bex-h1-v32" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -508,7 +523,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kfU-JV-kSI"/>
+        <segue reference="Nt5-ys-9zk"/>
         <segue reference="TNo-LJ-x7I"/>
         <segue reference="UZK-o3-8ui"/>
     </inferredMetricsTieBreakers>

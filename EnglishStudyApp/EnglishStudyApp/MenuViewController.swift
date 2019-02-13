@@ -22,7 +22,6 @@ class MenuViewController: UIViewController {
         dateFormater.dateFormat = "yyyy/MM/dd HH:mm:ss"
         let date = dateFormater.string(from: Date())
         setDATE.append(date)
-        
         userDefaults.set(setDATE, forKey:"SETDATE")
         userDefaults.synchronize()
     }
@@ -36,8 +35,7 @@ class MenuViewController: UIViewController {
         super.viewDidLoad()
         
     }
-   //  let getDATE:[String] = userDefaults.object(forKey: "SETDATE") as! Array<String>
-   
+  
     
 }
 

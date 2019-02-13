@@ -12,19 +12,34 @@ class UserinfoController: UIViewController , UITableViewDelegate, UITableViewDat
     
     //  userDefaultsの定義
     var userDefaults = UserDefaults.standard
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var getDate: [String] = []
+    var getInfo_seikaisu: [String] = []
+    var getInfo_percentage: [String] = []
+    
+    // 遷移先のViewControllerに渡す変数
+    var giveData: String = ""
+    var givedata: String=""
+    
+    var seiseki: String=""
+    var percentage: String=""
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // userDefaultsに保存された値の取得
         let userDATE:[String] = userDefaults.object(forKey: "SETDATE") as! [String]
         getDate = userDATE
+        
+        let Qnum = appDelegate.Qindex
+        let correctnum = appDelegate.correctCount
+        seiseki = appDelegate.Qindex.description + "問中" +  appDelegate.correctCount.description + "問正解！"
+        percentage = String( correctnum * 100 / Qnum) + "%"
+        
+        getInfo_seikaisu.append(seiseki)
+        getInfo_percentage.append(percentage)
     }
-    
-    // 遷移先のViewControllerに渡す変数
-    var giveData: String = ""
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return getDate.count
@@ -42,7 +57,8 @@ class UserinfoController: UIViewController , UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // 押されたときのcellのlabelの文字列をViewControllerに渡したいので、一旦、giveDataに入れとく
         
-            giveData = getDate[indexPath.item]
+            giveData = getInfo_seikaisu[indexPath.item]
+            givedata = getInfo_percentage[indexPath.item]
         
             // Segueを使った画面遷移を行う関数
             performSegue(withIdentifier: "Segue", sender: nil)
@@ -54,6 +70,7 @@ class UserinfoController: UIViewController , UITableViewDelegate, UITableViewDat
         if segue.identifier == "Segue" {
             let vc = segue.destination as! DisplayViewController
             vc.receiveData = giveData
+            vc.receivedata = givedata
         }
     }
     
