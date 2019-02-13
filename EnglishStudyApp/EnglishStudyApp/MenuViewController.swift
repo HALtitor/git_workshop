@@ -18,7 +18,7 @@ class MenuViewController: UIViewController {
     let dateFormater = DateFormatter()
     
     
-    @IBAction func GoQue(_ sender: UIButton, forEvent event: UIEvent) {
+    @IBAction func GoqQuestion(_ sender: Any) {
         dateFormater.locale = Locale(identifier: "ja_JP")
         dateFormater.dateFormat = "yyyy/MM/dd HH:mm:ss"
         let date = dateFormater.string(from: Date())
@@ -26,11 +26,12 @@ class MenuViewController: UIViewController {
         userDefaults.set(setDATE, forKey:"SETDATE")
         userDefaults.synchronize()
     }
+   
     
-    
-    @IBAction func GoUser(_ sender: Any) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
     }
-
     
     
     @IBOutlet weak var `default`: UIButton!
@@ -38,12 +39,7 @@ class MenuViewController: UIViewController {
     @IBOutlet weak var custom: UIButton!
 
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-    }
-  
+   
     
 
     
